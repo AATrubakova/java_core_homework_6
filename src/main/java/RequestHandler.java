@@ -29,6 +29,7 @@ public class RequestHandler extends Application {
 //        }
 
         String apiKey = "n4Hnt1jjtt55kFm5gubfGWugokMiS2Ri";
+        String teacherApiKey = "t2cVAklY2TNAPLX9JqSyftAywCDLXTws";
         String locationKey = "292254";
         HttpUrl httpUrl = new HttpUrl.Builder()
                 .scheme("http")
@@ -37,7 +38,7 @@ public class RequestHandler extends Application {
                 .addPathSegment("v1")
                 .addPathSegment("cites")
                 .addPathSegment("search")
-                .addQueryParameter("apiKey", "n4Hnt1jjtt55kFm5gubfGWugokMiS2Ri")
+                .addQueryParameter("apiKey", teacherApiKey)
                 .addQueryParameter("q", cityName)
                 .build();
 
