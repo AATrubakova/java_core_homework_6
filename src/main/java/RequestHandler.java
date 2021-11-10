@@ -29,19 +29,20 @@ public class RequestHandler extends Application {
 //        }
 
         String apiKey = "n4Hnt1jjtt55kFm5gubfGWugokMiS2Ri";
-        String teacherApiKey = "t2cVAklY2TNAPLX9JqSyftAywCDLXTws";
         String locationKey = "292254";
+
         HttpUrl httpUrl = new HttpUrl.Builder()
-                .scheme("http")
+                .scheme("https")
                 .host("dataservice.accuweather.com")
-                .addPathSegment("locations")
+                .addPathSegment("forecasts")
                 .addPathSegment("v1")
-                .addPathSegment("cites")
-                .addPathSegment("search")
-                .addQueryParameter("apiKey", teacherApiKey)
-                .addQueryParameter("q", cityName)
+                .addPathSegment("daily")
+                .addPathSegment("5day")
+                .addPathSegment(locationKey)
+                .addQueryParameter("apikey", apiKey)
                 .build();
 
+        System.out.println(httpUrl.toString());
         Request request = new Request.Builder()
                 .addHeader("Accept","application/json")
                 .url(httpUrl)
@@ -50,7 +51,7 @@ public class RequestHandler extends Application {
         Response response = okHttpClient.newCall(request).execute();
 
 //        System.out.println(response.headers());
-//        System.out.println(response.code());
+        System.out.println(response.code());
 
         String json = response.body().string();
 
